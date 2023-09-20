@@ -38,6 +38,7 @@ sp-version = { version = "22.0.0", default-features = false, features = ["serde"
 sp-weights = { version = "20.0.0", default-features = false, features = ["serde"] }
 sp-runtime-interface = { version = "17", default-features = false }
 binary-merkle-tree = { version = "4.0.0-dev", default-features = false }
+sp-consensus-grandpa = { git = "https://github.com/paritytech/substrate", default-features = false, branch = "polkadot-v1.0.0" }
 
 once_cell = { version = "1.18", optional = true }
 
@@ -66,7 +67,8 @@ std = [
 	"sp-version/std",
 	"sp-weights/std",
 	"binary-merkle-tree/std",
-	"once_cell"
+	"once_cell",
+	"sp-consensus-grandpa/std",
 ]
 runtime-benchmarks = [
 	"frame-support/runtime-benchmarks",

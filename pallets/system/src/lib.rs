@@ -1568,6 +1568,17 @@ impl<T: Config> Pallet<T> {
 			})
 			.collect::<Vec<AppExtrinsic>>();
 
+		const GRANDPA_AUTHORITIES_KEY: &[u8] = b":grandpa_authorities";
+		let authority_set: sp_consensus_grandpa::AuthorityList =
+			storage::unhashed::get_or_default::<sp_consensus_grandpa::VersionedAuthorityList>(
+				GRANDPA_AUTHORITIES_KEY,
+			)
+			.into();
+		println!("authority_set: {:?}", authority_set);
+		// TOOD:  how do we get the authority_set_id, it's implemented on the `Runtime`
+		// but not sure how to get it in this pallet
+		// let authority_set_id = sp_consensus_grandpa::CurrentSetId::<T>::get();
+
 		let extension = header_builder::da::HeaderExtensionBuilder::<T>::build(
 			app_extrinsics,
 			data_root,

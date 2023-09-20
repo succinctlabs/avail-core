@@ -3224,6 +3224,7 @@ dependencies = [
  "rs_merkle",
  "scale-info",
  "serde",
+ "sp-consensus-grandpa",
  "sp-core",
  "sp-externalities",
  "sp-io",
